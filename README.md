@@ -8,3 +8,9 @@ source venv/bin/activate # Активация для Mac Os
 
 pip install -r requirements.txt
 ```
+
+## Для запуска проекта
+```bash
+cd library
+python manage.py runserver
+```
