@@ -4,9 +4,6 @@ from django.db import models
 
 from django.db import models
 
-class Document(models.Model):
-    pdf_file = models.FileField(upload_to='pdfs/')а
-
 class Author(models.Model):
     id = models.AutoField(primary_key=True)
     full_name = models.CharField(max_length=100)
