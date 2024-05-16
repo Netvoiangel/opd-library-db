@@ -18,7 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from libraryDataBase.views import index_page
 
+from . import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", index_page)
+    path('', index_page),
+    path('upload/', views.upload_pdf, name='upload_pdf'),
 ]
