@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Files</title>
+</head>
+<body>
+    <h1>PDF Files</h1>
+    <ul>
+        {% for pdf in pdfs %}
+            <li>
+                <a href="{% url 'pdf_view' pdf.id %}">{{ pdf.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ pdf.title }}</title>
+</head>
+<body>
+    <h1>{{ pdf.title }}</h1>
+    <p><strong>Направление статьи:</strong> {{ pdf.direction }}</p>
+    <p><strong>Авторы:</strong>
+        <ul>
+            {% for author in pdf.authors.all %}
+                <li>{{ author.first_name }} {{ author.last_name }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+    <p><a href="{{ pdf.pdf.url }}">Ссылка на PDF файл</a></p>
+</body>
+</html>
