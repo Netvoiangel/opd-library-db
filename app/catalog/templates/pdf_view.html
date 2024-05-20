@@ -9,10 +9,17 @@
     <p><strong>Авторы:</strong>
         <ul>
             {% for author in pdf.authors.all %}
-                <li>{{ author.first_name }} {{ author.last_name }}</li>
+                <li><a href="{% url 'author_detail' author.id %}">{{ author.first_name }} {{ author.last_name }}</a></li>
             {% endfor %}
         </ul>
     </p>
     <p><a href="{{ pdf.pdf.url }}">Ссылка на PDF файл</a></p>
+
+    {% if user.is_authenticated and is_author %}
+        <form method="get" action="{% url 'delete_pdf' pdf.id %}">
+            {% csrf_token %}
+            <button type="submit">Удалить статью</button>
+        </form>
+    {% endif %}
 </body>
 </html>
