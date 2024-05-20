@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add PDF File</title>
+</head>
+<body>
+    <h1>Add PDF File</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br><br>
+
+        <label for="direction">Direction:</label><br>
+        <input type="text" id="direction" name="direction"><br><br>
+
+        <label for="pdf_file">PDF File:</label><br>
+        <input type="file" id="pdf_file" name="pdf_file"><br><br>
+
+        <label for="authors">Authors:</label><br>
+        <select id="authors" name="authors" multiple>
+            {% for author in authors %}
+                <option value="{{ author.id }}">{{ author }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

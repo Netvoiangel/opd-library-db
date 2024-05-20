@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ author.last_name }} {{ author.first_name }} {{ author.middle_name }}</title>
+</head>
+<body>
+    <h1>{{ author.last_name }} {{ author.first_name }} {{ author.middle_name }}</h1>
+    <p><strong>Должность:</strong> {{ author.position }}</p>
+    <p><strong>Институт:</strong> {{ author.institute }}</p>
+    <p><strong>Статьи автора:</strong>
+        <ul>
+            {% for pdf in author.pdf_file_set.all %}
+                <li><a href="{% url 'pdf_view' pdf.id %}">{{ pdf.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </p>
+    <a href="{% url 'author_list' %}">Назад к списку авторов</a>
+</body>
+</html>
